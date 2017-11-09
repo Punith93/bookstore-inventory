@@ -1,0 +1,38 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+        <div class="panel panel-default" style="margin-top: 25%;">
+            <div class="panel-body">
+                <h3 style="text-align:center; margin-top: 10px;
+                            margin-bottom: 20px;">Update Book Details</h3>
+                <form action="/update/{{book.id}}" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="name">Book Name:</label>
+                            <input class="form-control" placeholder="Book Name" name="name" id="name" type="text" autofocus="" value="{{book.name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Enter Book Description:</label>
+                            <input class="form-control" placeholder="Book Description"  name="description" id="description" type="text" value="{{book.description}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Enter Author Name:</label>
+                            <input class="form-control" placeholder="Author Name" type="text" name="Author" id="Author" value="{{book.Author}}">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                               <input type="submit" class="btn btn-primary btn-block" name="cancel" value="cancel">
+                            </div>
+                            <div class="col-md-6">
+                               <input type="submit" class="btn btn-success btn-block" value="Update"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

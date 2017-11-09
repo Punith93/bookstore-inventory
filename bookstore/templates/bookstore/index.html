@@ -1,0 +1,46 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-6 col-xs-offset-1 col-xs-10 top">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span style="font-size: 20px;">BookStore Inventory</span>
+                <a href="/Createbook" class="btn btn-small btn-primary pull-right"><i class="glyphicon glyphicon-plus"></i> Add</a>
+                <div class="clear-both"></div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <tr>
+                                    <th>Book Name</th>
+                                    <th>Description</th>
+                                    <th>Author</th>
+                                    <th>Created At</th>
+                                    <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <td>{{book.name}}</td>
+                            <td>{{book.description}}</td>
+                            <td>{{book.Author}}</td>
+                            <td>{{book.created_at}}</td>
+                            <td>
+                                <div class="">
+                                    <a class="btn btn-small btn-primary" href="/Edit/{{book.id}}"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                    <a class="btn btn-small btn-danger"href="/Delete/{{book.id}}"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

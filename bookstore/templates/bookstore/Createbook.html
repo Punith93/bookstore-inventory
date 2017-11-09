@@ -1,0 +1,38 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+        <div class="panel panel-default" style="margin-top: 25%;">
+            <div class="panel-body">
+                <h3 style="text-align:center; margin-top: 10px;
+                            margin-bottom: 20px;">Book Entry</h3>
+                <form action="/create" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="name">Enter Book Name:</label>
+                            <input class="form-control" placeholder="Book Name" name="name" id="name" type="text" autofocus="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Enter Book Description:</label>
+                            <textarea class="form-control" placeholder="Book Description"  name="description" id="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Enter Author Name:</label>
+                            <input class="form-control" placeholder="Author Name" type="text" name="Author" id="Author">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                               <input type="submit" class="btn btn-primary btn-block" name="cancel" value="cancel">
+                            </div>
+                            <div class="col-md-6">
+                               <input type="submit" class="btn btn-success btn-block" value="AddBook"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
